@@ -29,15 +29,16 @@ module bar(outset=15) {
 			multihull() {
 				cylinder(d=width, h=thickness);
 				translate([slide, 0, 0]) cylinder(d=width, h=thickness);
-				translate([slide, width/4, 0]) zcube([width/2, width/2, thickness]);
-				translate([length, width/4, 0]) zcube([width/2, width/2, thickness]);
+				//translate([slide, width/4, 0]) zcube([width/2, width/2, thickness]);
+				//translate([length, width/4, 0]) zcube([width/2, width/2, thickness]);
 				translate([length, 0, 0]) cylinder(d=width, h=thickness);
 				translate([length+outset, outset, 0]) cylinder(d=width, h=thickness);
 			}
 			
-			for (i = [40:30:length]) {
-				translate([i, 0, 0]) {
-					cylinder(d=width, h=thickness);
+			for (i = [20:40:length]) {
+				hull() {
+					translate([i, 0, 0]) cylinder(d=width, h=thickness);
+					translate([i, -outset, 0]) cylinder(d=width, h=thickness);
 				}
 			}
 		}
@@ -49,10 +50,8 @@ module bar(outset=15) {
 		
 		//translate([0, width/2, 0]) zcube([20, 4, thickness]);
 		
-		for (i = [40:30:length]) {
-			translate([i, 0, 0]) {
-				magnet();
-			}
+		for (i = [20:40:length]) {
+			translate([i, -outset, 0]) magnet();
 		}
 	}
 }

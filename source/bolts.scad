@@ -1,6 +1,6 @@
 
 $radial_error = 0.1;
-$fn = 16;
+$fn = 32;
 
 module cylinder_outer(height, radius, fn=$fn) {
 	fudge = 1/cos(180/fn);
@@ -29,6 +29,11 @@ module hole(diameter=3, depth=6, inset=10) {
 
 module countersunk_hole(diameter=3, depth=6, inset=10) {
 	hole(diameter, depth, inset);
+	translate([0, 0, depth-diameter/2]) cylinder(r1=diameter/2+$radial_error, r2=diameter+$radial_error, h=diameter/2);
+}
+
+module threaded_countersunk_hole(diameter=3, depth=6, inset=10) {
+	hole(diameter*0.9, depth, inset);
 	translate([0, 0, depth-diameter/2]) cylinder(r1=diameter/2+$radial_error, r2=diameter+$radial_error, h=diameter/2);
 }
 
