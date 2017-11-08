@@ -12,7 +12,7 @@ render() translate([0, 21, -6]) {
 	
 	translate([0, 0, 12]) {
 		// Locked position
-		//rotate(-90, [1, 0, 0]) translate([0, -3, -21+5]) 
+		rotate(-90, [1, 0, 0]) translate([0, -3, -21+5]) 
 		
 		rotate(-90, [0, 1, 0]) bar();
 	}
