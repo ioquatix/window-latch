@@ -1,24 +1,55 @@
 
+use <zcube.scad>;
 use <bolts.scad>;
 
-width = 14;
-length = 80;
-thickness = 6;
+$fn = 64;
 
-module bar() {
-	difference() {
-		hull() {
-			cylinder(d=14, h=thickness);
-			translate([length, 0, 0]) cylinder(d=14, h=thickness);
+width = 14;
+length = 100;
+thickness = 8;
+
+module magnet(h=8,d=5) {
+	cylinder_outer(h, d/2, 32);
+}
+
+module multihull() {
+	union() {
+		for (i = [0:1:$children-2])
+			hull() {
+				children(i);
+				children(i+1);
+			}
+	}
+}
+
+module bar(outset=15) {
+	translate([0, 0, -thickness/2]) difference() {
+		union() {
+			multihull() {
+				cylinder(d=width, h=thickness);
+				translate([length, 0, 0]) cylinder(d=width, h=thickness);
+				translate([length+outset, outset, 0]) cylinder(d=width, h=thickness);
+			}
+			
+			for (i = [20:40:length]) {
+				hull() {
+					translate([i, 0, 0]) cylinder(d=width, h=thickness);
+					translate([i, -outset, 0]) cylinder(d=width, h=thickness);
+				}
+			}
 		}
 		
-		hole(3, depth=thickness, inset=0);
+		hull() {
+			hole(3, depth=thickness, inset=0);
+			translate([20, 0, 0]) hole(3, depth=thickness, inset=0);
+		}
 		
-		for (i = [20:20:length]) {
-			translate([i, 0, 0]) hull() {
-				hole(4, depth=thickness, inset=0);
-				translate([-2, -10, 0]) hole(6, depth=thickness, inset=0);
-			}
+		//translate([0, width/2, 0]) zcube([20, 4, thickness]);
+		
+		for (i = [20:40:length]) {
+			translate([i, -width, 0]) magnet();
 		}
 	}
 }
+
+bar();
