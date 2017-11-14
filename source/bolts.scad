@@ -2,7 +2,7 @@
 $radial_error = 0.1;
 $fn = 32;
 
-module cylinder_outer(height, radius, fn=$fn) {
+module cylinder_outer(height, radius, fn=$fn, radial_error=$radial_error) {
 	fudge = 1/cos(180/fn);
 	cylinder(h=height,r=radius*fudge+$radial_error, $fn=fn);
 }

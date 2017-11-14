@@ -10,7 +10,7 @@ thickness = 8;
 slide = 20;
 
 module magnet(h=8,d=5) {
-	cylinder_outer(h, d/2, 32);
+	cylinder_outer(h, d/2, 32, radial_error=0);
 }
 
 module multihull() {
@@ -42,6 +42,9 @@ module bar(outset=15) {
 				}
 			}
 		}
+		
+		// Cut out a notch to make it easier to slide down?
+		// translate([-width/2, width/2, 0]) rotate(45, [0, 0, 1]) zcube([sqrt(width*width*2)/2, sqrt(width*width*2)/2, width]);
 		
 		hull() {
 			hole(3, depth=thickness, inset=0);

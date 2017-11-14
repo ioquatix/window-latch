@@ -10,7 +10,7 @@ thickness = 4;
 diameter = 4;
 
 module magnet(h=3,d=5) {
-	cylinder_outer(h, d/2, 32);
+	cylinder_outer(h, d/2, 32, radial_error=0);
 }
 
 module bracket(spacing=30) {
