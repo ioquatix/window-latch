@@ -27,13 +27,25 @@ This part will likely need to be modified for your exact measurements. In my hou
 
 The upper latching mechanism works best if two washers are inserted before screwing together. One can be positioned using gravity, the other must be held in place using dexterity while inserting the bar. once everything is in position, you can screw in the M3x20mm bolt to hold everything in position. If you screw this too tightly, the latch will not move easily.
 
+![Positioning the washers](photos/IMG_9580.jpg)
+
+Once completed, it should look something like this:
+
+![The completed top bracket](photos/IMG_9581.jpg)
+
 ### Bottom Bracket
 
-The bottom bracket works best if two magnets are inserted into it, to provide a slightly better latching mechanism. If you prefer, you can remove the magnets, and use anther M3x20mm bolt to lock the mechanism completely e.g. for security on rarely used windows.
+The bottom bracket works best if two magnets are inserted into it, to provide a slightly better latching mechanism.
+
+![Inserting the magnets](photos/IMG_9577.jpg)
+
+If you prefer, you can remove the magnets, and use anther M3x20mm bolt to lock the mechanism completely e.g. for security on rarely used windows.
 
 ### Installation
 
 It seems sufficient simply to screw into the existing aluminium frame. Sometimes the window is not aligned horizontally, and the latch would be hard to push down. The best solution is to simply open the window and give it a small yank to try and correct it. Sometimes spraying some CRC/WD40 helps too.
+
+![The latch in locked position](photos/IMG_9574.jpg)
 
 ## Contributing
 
